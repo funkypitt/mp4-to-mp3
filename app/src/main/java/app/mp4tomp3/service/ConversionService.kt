@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.net.Uri
-import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
 import androidx.core.app.NotificationCompat
@@ -26,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
@@ -40,6 +40,8 @@ class ConversionService : Service() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private var worker: Job? = null
     private var wakeLock: PowerManager.WakeLock? = null
+    @Volatile
+    private var lastStartId = 0
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -49,10 +51,15 @@ class ConversionService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Recorded before enqueueing, so a worker about to stop can tell that
+        // newer work has arrived.
+        lastStartId = startId
+
         if (intent?.action == ACTION_CANCEL) {
             worker?.cancel()
             ConversionState.cancelPending()
-            finish()
+            stopForeground(STOP_FOREGROUND_REMOVE)
+            stopSelf()
             return START_NOT_STICKY
         }
 
@@ -76,13 +83,21 @@ class ConversionService : Service() {
         val job = coroutineContext.job
         try {
             while (coroutineContext.isActive) {
-                val item = ConversionState.nextQueued() ?: break
+                val item = ConversionState.nextQueued()
+                if (item == null) {
+                    // Queue drained. Only stop if no start command landed while
+                    // we were finishing the last file; otherwise the batch the
+                    // user just added would be dropped on the floor.
+                    if (stopSelfResult(lastStartId)) break
+                    delay(100)
+                    continue
+                }
                 convert(item) { !job.isActive }
             }
         } finally {
             releaseWakeLock()
             ConversionState.setRunning(false)
-            finish()
+            stopForeground(STOP_FOREGROUND_REMOVE)
         }
     }
 
@@ -193,11 +208,6 @@ class ConversionService : Service() {
             NOTIFICATION_ID, notification,
             ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC,
         )
-    }
-
-    private fun finish() {
-        stopForeground(STOP_FOREGROUND_REMOVE)
-        stopSelf()
     }
 
     // --- wake lock ---------------------------------------------------------

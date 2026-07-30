@@ -1,0 +1,31 @@
+AuthorName: funkypitt
+Categories:
+- Multimedia
+CurrentVersionCode: 2147483647
+IssueTracker: https://github.com/funkypitt/mp4-to-mp3/issues
+License: GPL-3.0-only
+Name: MP4 to MP3
+SourceCode: https://github.com/funkypitt/mp4-to-mp3
+Summary: Convert videos to 320 kbps MP3 files and share them
+Description: |
+  An app that does one thing: turn videos into MP3 files.
+
+  Pick one or more videos, and each one's audio track is extracted and
+  re-encoded to a 320 kbps CBR MP3 saved in your Downloads folder. When
+  it is done you get a list of the files, each with a Share button — so
+  sending them to a cloud folder, Telegram, WhatsApp or anywhere else
+  is one tap away.
+
+  * 320 kbps constant bitrate, encoded with LAME
+  * Batch conversion — pick as many videos as you like
+  * Saved straight to Downloads, visible in your file manager
+  * Share individual files or all of them at once
+  * Works with anything your phone can play: MP4, MKV, WebM, 3GP…
+  * Videos can also be sent to the app from another app's share sheet
+  * Conversion keeps running when you leave the app
+
+  No accounts, no network access, no ads, no tracking. Everything
+  happens on the device.
+
+  Bundles LAME 3.100 (LGPL-2.1-or-later).
+WebSite: https://github.com/funkypitt/mp4-to-mp3

@@ -1,6 +1,5 @@
 package app.mp4tomp3.ui
 
-import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -62,7 +62,7 @@ fun ConverterScreen(
     onPickFiles: () -> Unit,
     onCancel: () -> Unit,
     onClear: () -> Unit,
-    onShare: (List<Uri>) -> Unit,
+    onShare: (List<ConversionItem>) -> Unit,
 ) {
     val done = items.filter { it.status == Status.DONE && it.outputUri != null }
 
@@ -89,7 +89,7 @@ fun ConverterScreen(
                     doneCount = done.size,
                     onPickGallery = onPickGallery,
                     onCancel = onCancel,
-                    onShareAll = { onShare(done.mapNotNull { it.outputUri }) },
+                    onShareAll = { onShare(done) },
                 )
             }
         },
@@ -112,7 +112,7 @@ fun ConverterScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 items(items, key = { it.id }) { item ->
-                    ItemCard(item = item, onShare = { onShare(listOfNotNull(item.outputUri)) })
+                    ItemCard(item = item, onShare = { onShare(listOf(item)) })
                 }
             }
         }
@@ -183,7 +183,7 @@ private fun ItemCard(item: ConversionItem, onShare: () -> Unit) {
                 Text(
                     text = if (item.status == Status.DONE) item.outputName else item.sourceName,
                     style = MaterialTheme.typography.bodyLarge,
-                    maxLines = 1,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(Modifier.height(2.dp))
@@ -256,7 +256,10 @@ private fun BottomActions(
 ) {
     Surface(tonalElevation = 3.dp) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .navigationBarsPadding()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {

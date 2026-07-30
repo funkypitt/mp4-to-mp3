@@ -11,6 +11,8 @@
     <string name="cancel">Annuler</string>
     <string name="clear">Vider la liste</string>
 
+    <string name="video_name_prefix">Vidéo</string>
+
     <string name="status_queued">En attente</string>
     <string name="status_converting">Conversion… %1$d%%</string>
     <string name="status_done">Enregistré dans Téléchargements · %1$d kbps</string>

@@ -13,6 +13,9 @@
     <string name="cancel">Cancel</string>
     <string name="clear">Clear the list</string>
 
+    <!-- Used when the picker hides the real filename; becomes e.g. "Video 2026-07-30 09-15-56.mp3" -->
+    <string name="video_name_prefix">Video</string>
+
     <string name="status_queued">Waiting</string>
     <string name="status_converting">Converting… %1$d%%</string>
     <string name="status_done">Saved to Downloads · %1$d kbps</string>

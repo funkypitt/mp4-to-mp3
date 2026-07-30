@@ -38,7 +38,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        askForNotificationsOnce()
 
         setContent {
             Mp4ToMp3Theme {
@@ -56,7 +55,7 @@ class MainActivity : ComponentActivity() {
                     onPickFiles = { pickFromFiles.launch(arrayOf("video/*")) },
                     onCancel = { ConversionService.cancel(this) },
                     onClear = { ConversionState.clear() },
-                    onShare = { uris -> Sharing.share(this, uris) },
+                    onShare = { items -> Sharing.share(this, items) },
                 )
             }
         }
@@ -83,11 +82,16 @@ class MainActivity : ComponentActivity() {
 
     private fun convert(uris: List<Uri>) {
         if (uris.isEmpty()) return
+        // Asked here rather than at launch: by now there is something to
+        // notify about, so the prompt has a visible reason.
+        askForNotificationsOnce()
         ConversionService.start(this, uris)
     }
 
     private fun askForNotificationsOnce() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        if (asked) return
+        asked = true
         val granted = ContextCompat.checkSelfPermission(
             this, Manifest.permission.POST_NOTIFICATIONS
         ) == PackageManager.PERMISSION_GRANTED
@@ -111,6 +115,9 @@ class MainActivity : ComponentActivity() {
         }
 
     private companion object {
+        /** Asked at most once per process: a refusal should not become nagging. */
+        private var asked = false
+
         /**
          * The system photo picker rejects a limit above its own maximum, and
          * that maximum is only knowable at runtime.
