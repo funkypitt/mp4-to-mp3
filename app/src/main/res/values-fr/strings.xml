@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_title">Extraire le son</string>
+    <string name="empty_subtitle">Choisissez une ou plusieurs vidéos. Chacune devient un MP3 à %1$d kbps dans votre dossier Téléchargements.</string>
+    <string name="choose_videos">Choisir des vidéos</string>
+    <string name="browse_files">Parcourir les fichiers</string>
+    <string name="add_videos">Ajouter des vidéos</string>
+
+    <string name="share">Partager</string>
+    <string name="share_all">Tout partager (%1$d)</string>
+    <string name="cancel">Annuler</string>
+    <string name="clear">Vider la liste</string>
+
+    <string name="status_queued">En attente</string>
+    <string name="status_converting">Conversion… %1$d%%</string>
+    <string name="status_done">Enregistré dans Téléchargements · %1$d kbps</string>
+    <string name="status_failed">Échec de la conversion</string>
+    <string name="status_cancelled">Annulé</string>
+
+    <string name="notif_channel">Conversion</string>
+    <string name="notif_title">Conversion %1$d sur %2$d</string>
+    <string name="notif_title_generic">Conversion</string>
+    <string name="notif_starting">Démarrage…</string>
+</resources>

@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/home/freedomfighter/code/mp4-to-mp3/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/freedomfighter/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/freedomfighter/code/mp4-to-mp3/app/.cxx/RelWithDebInfo/6971a1o2/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/freedomfighter/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/freedomfighter/code/mp4-to-mp3/app/.cxx/RelWithDebInfo/6971a1o2/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "mp3enc::@6890427a1f51a3e7e1df": {
+      "artifactName": "mp3enc",
+      "abi": "x86_64",
+      "output": "/home/freedomfighter/code/mp4-to-mp3/app/build/intermediates/cxx/RelWithDebInfo/6971a1o2/obj/x86_64/libmp3enc.so",
+      "runtimeFiles": []
+    }
+  }
+}

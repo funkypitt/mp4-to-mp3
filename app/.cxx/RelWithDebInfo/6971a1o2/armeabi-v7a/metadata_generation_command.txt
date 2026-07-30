@@ -1,0 +1,18 @@
+                        -H/home/freedomfighter/code/mp4-to-mp3/app/src/main/cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=29
+-DANDROID_PLATFORM=android-29
+-DANDROID_ABI=armeabi-v7a
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DANDROID_NDK=/home/freedomfighter/Android/Sdk/ndk/27.1.12297006
+-DCMAKE_ANDROID_NDK=/home/freedomfighter/Android/Sdk/ndk/27.1.12297006
+-DCMAKE_TOOLCHAIN_FILE=/home/freedomfighter/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/home/freedomfighter/Android/Sdk/cmake/3.22.1/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/freedomfighter/code/mp4-to-mp3/app/build/intermediates/cxx/RelWithDebInfo/6971a1o2/obj/armeabi-v7a
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/freedomfighter/code/mp4-to-mp3/app/build/intermediates/cxx/RelWithDebInfo/6971a1o2/obj/armeabi-v7a
+-DCMAKE_BUILD_TYPE=RelWithDebInfo
+-B/home/freedomfighter/code/mp4-to-mp3/app/.cxx/RelWithDebInfo/6971a1o2/armeabi-v7a
+-GNinja
+                        Build command args: []
+                        Version: 2
