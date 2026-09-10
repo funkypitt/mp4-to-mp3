@@ -26,4 +26,6 @@
     <string name="notif_title">Converting %1$d of %2$d</string>
     <string name="notif_title_generic">Converting</string>
     <string name="notif_starting">Starting…</string>
+
+    <string name="credits">Pierre Gallaz · developed with Claude Code</string>
 </resources>

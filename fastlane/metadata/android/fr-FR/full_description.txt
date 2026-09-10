@@ -1,0 +1,17 @@
+Une application qui ne fait qu'une chose : transformer des vidéos en fichiers MP3.
+
+Choisissez une ou plusieurs vidéos ; la piste audio de chacune est extraite et réencodée en MP3 320 kbps CBR, enregistré dans votre dossier Téléchargements. À la fin, vous obtenez la liste des fichiers, chacun avec un bouton Partager — les envoyer vers un dossier cloud, Telegram, WhatsApp ou ailleurs se fait en une touche.
+
+- Débit constant de 320 kbps, encodé avec LAME
+- Conversion par lots — autant de vidéos que vous voulez
+- Enregistré directement dans Téléchargements, visible dans votre gestionnaire de fichiers
+- Partage fichier par fichier ou tout d'un coup
+- Fonctionne avec tout ce que votre téléphone sait lire : MP4, MKV, WebM, 3GP…
+- Les vidéos peuvent aussi être envoyées à l'application depuis le menu Partager d'une autre application
+- La conversion continue quand vous quittez l'application
+
+Sans compte, sans accès réseau, sans publicité, sans pistage. Tout se passe sur l'appareil.
+
+Intègre LAME 3.100 (LGPL-2.1-or-later).
+
+Pierre Gallaz · développé avec Claude Code

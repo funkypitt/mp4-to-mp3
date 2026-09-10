@@ -23,4 +23,6 @@
     <string name="notif_title">Conversion %1$d sur %2$d</string>
     <string name="notif_title_generic">Conversion</string>
     <string name="notif_starting">Démarrage…</string>
+
+    <string name="credits">Pierre Gallaz · développé avec Claude Code</string>
 </resources>

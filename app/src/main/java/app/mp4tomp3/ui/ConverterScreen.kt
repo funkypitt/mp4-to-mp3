@@ -162,6 +162,12 @@ private fun EmptyState(
                 Spacer(Modifier.width(8.dp))
                 Text(stringResource(R.string.browse_files))
             }
+            Spacer(Modifier.height(24.dp))
+            Text(
+                text = stringResource(R.string.credits),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+            )
         }
     }
 }

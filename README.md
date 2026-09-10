@@ -59,3 +59,11 @@ sources themselves are untouched.
 ## Licence
 
 GPL-3.0-only. See `LICENSE`.
+
+## Crédits / Credits
+
+© 2026 Pierre Gallaz. Développé avec [Claude Code](https://claude.com/claude-code) (Anthropic).
+Licence GPL-3.0-only, voir `LICENSE`.
+
+© 2026 Pierre Gallaz. Developed with [Claude Code](https://claude.com/claude-code) (Anthropic).
+GPL-3.0-only licence, see `LICENSE`.
