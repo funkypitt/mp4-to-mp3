@@ -20,6 +20,13 @@ android {
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
         }
+        // 16 KB pages (Android 15+ devices, Play requirement): NDK r27 aligns ELF segments at
+        // 4 KB unless asked; 1.0.1's libmp3enc.so could not load on such phones.
+        externalNativeBuild {
+            cmake {
+                arguments += listOf("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
+            }
+        }
     }
 
     externalNativeBuild {
