@@ -1,3 +1,5 @@
+![MP4 to MP3](docs/banner.png)
+
 # MP4 to MP3
 
 An Android app that does one thing: turn videos into MP3 files.
@@ -67,3 +69,7 @@ Licence GPL-3.0-only, voir `LICENSE`.
 
 © 2026 Pierre Gallaz. Developed with [Claude Code](https://claude.com/claude-code) (Anthropic).
 GPL-3.0-only licence, see `LICENSE`.
+
+## Captures d'écran
+
+<img src="docs/screenshot-1.png" width="30%">
